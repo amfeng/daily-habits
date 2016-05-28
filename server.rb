@@ -9,10 +9,11 @@ end
 class HabitLog < ActiveRecord::Base
 end
 
-get '/hi' do
+get '/' do
   erb :index
 end
 
 post '/create-habit' do
-	"Your weight is #{params['weight']}"
+	HabitLog.create(habit: 'weight', value: params['weight'])
+  'created'
 end
